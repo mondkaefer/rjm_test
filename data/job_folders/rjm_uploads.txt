@@ -1,0 +1,3 @@
+matrix_in.txt
+..__PATHSEP__script.sh
+..__PATHSEP__transpose.m
