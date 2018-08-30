@@ -5,10 +5,10 @@ test_folder="${num_jobs}_jobs"
 binaries="rjm_batch_submit rjm_batch_wait rjm_batch_clean"
 
 for binary in ${binaries}; do
-  bin="data/bin/${binary}"
+  bin="bin/${binary}"
   if [ ! -f "${bin}" ]; then
     echo "File ${bin} doesn't exist."
-    echo "Please copy the RJM binaries into data/bin before calling setup.sh."
+    echo "Please copy the RJM binaries into bin before calling setup.sh."
     echo "Exiting."
     exit 1
   fi
@@ -35,7 +35,7 @@ for i in $(seq ${num_jobs}); do
 done
 
 for binary in ${binaries}; do
-  bin="data/bin/${binary}"
+  bin="bin/${binary}"
   cp "${bin}" "${test_folder}"
 done
 

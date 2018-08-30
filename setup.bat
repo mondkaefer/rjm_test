@@ -5,9 +5,9 @@ SET test_folder=%num_jobs%_jobs
 SET binaries=rjm_batch_submit.exe,rjm_batch_wait.exe,rjm_batch_clean.exe
 
 FOR %%b IN (%binaries%) DO (
-  IF NOT EXIST data\bin\%%b (
-    ECHO File data\bin\%%b doesn't exist.
-    ECHO Please copy the RJM binaries into data\bin before calling setup.sh.
+  IF NOT EXIST bin\%%b (
+    ECHO File bin\%%b doesn't exist.
+    ECHO Please copy the RJM binaries into bin before calling setup.sh.
     ECHO Exiting.
     EXIT /B 1
   )
@@ -31,7 +31,7 @@ FOR /l %%i in (1,1,%num_jobs%) DO (
 )
 
 FOR %%b IN (%binaries%) DO (
-  COPY data\bin\%%b %test_folder% > NUL
+  COPY bin\%%b %test_folder% > NUL
 )
 
 COPY data\script.sh %test_folder% > NUL
