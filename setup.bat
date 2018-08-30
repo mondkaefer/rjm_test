@@ -38,8 +38,8 @@ COPY data\script.sh %test_folder% > NUL
 COPY data\transpose.m %test_folder% > NUL
 
 SET runfile=%test_folder%\run.bat
-ECHO rjm_batch_submit.exe -c "bash script.sh" -m 1G -j serial -w 00:01:00 -f localdirs.txt -ll debug > %runfile%
-ECHO rjm_batch_wait.exe -f localdirs.txt -z 5 -ll debug >> %runfile%
-ECHO rjm_batch_clean.exe -f localdirs.txt -ll debug >> %runfile%
+ECHO rjm_batch_submit.exe -c "bash script.sh" -m 1G -j serial -w 00:01:00 -f localdirs.txt > %runfile%
+ECHO rjm_batch_wait.exe -f localdirs.txt -z 5 >> %runfile%
+ECHO rjm_batch_clean.exe -f localdirs.txt >> %runfile%
 
 EXIT /B 0
