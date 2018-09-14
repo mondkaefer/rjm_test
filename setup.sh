@@ -43,7 +43,9 @@ cp data/script.sh "${test_folder}"
 cp data/transpose.m "${test_folder}"
 
 runfile="${test_folder}/run.sh"
-echo './rjm_batch_submit -c "bash script.sh" -m 1G -j serial -w 00:01:00 -f localdirs.txt -ll debug' > ${runfile}
-echo './rjm_batch_wait -f localdirs.txt -z 5 -ll debug' >> ${runfile}
-echo './rjm_batch_clean -f localdirs.txt -ll debug' >> ${runfile}
+echo '#!/bin/bash' > ${runfile}
+echo 'loglevel=debug' >> ${runfile}
+echo './rjm_batch_submit -c "bash script.sh" -m 1G -j serial -w 00:01:00 -f localdirs.txt -ll ${loglevel}' > ${runfile}
+echo './rjm_batch_wait -f localdirs.txt -z 5 -ll ${loglevel}' >> ${runfile}
+echo './rjm_batch_clean -f localdirs.txt -ll ${loglevel}' >> ${runfile}
 chmod u+rwx ${runfile}
