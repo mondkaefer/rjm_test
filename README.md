@@ -1,5 +1,5 @@
 # rjm_test
-Set up a test for the rjm tools
+Set up and run test jobs under Windows/Mac/Linux to test the rjm tools
 
 ## Prerequisites
 Copy RJM binaries into data/bin before calling setup.
